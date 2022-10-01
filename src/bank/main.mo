@@ -28,8 +28,16 @@ actor DBank{   //actor is used to define a class in motoko
   //decrease the current val by the amount specified
 
   public func withDrawl(amount:Nat){
-    currentVal-=amount;
-    Debug.print(debug_show(currentVal));
+    let tempValue:Int=currentVal-amount;//here we are assigning the value of the subtraction to a variable which is of type INT which can be positive or negative as we want to check whether the requested amount is less than the total amount cause if the requested amount for withdrawl was more we get an error check it 
+    
+
+    if(tempValue>=0){
+      currentVal-=amount;
+      Debug.print(debug_show(currentVal));
+    }
+    else{
+      Debug.print("the estimated total value is less the the requested value for withdrawl");
+    }
   };
 
 }
