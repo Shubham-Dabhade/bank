@@ -6,7 +6,7 @@ import Float "mo:base/Float";//import float module for converting values to a fl
 
 actor DBank{   //actor is used to define a class in motoko
   stable var currentVal:Float=300;//creating it in a decimal value to add changes after point //adding stable keyword makes it orthogonally persistent and even if the canister is re deployed the value remains persistent 
-  // currentVal:=100;
+  currentVal:=300;
   //Debug.print("Hello"); //print function lets us print a text,but we can't print currentVal as it only prints text and currentVal is of type Nat
 
   //to print currentVal we use another function called debug_show to remove the error
@@ -15,7 +15,8 @@ actor DBank{   //actor is used to define a class in motoko
 
 
   //using the time module to get the current time
-  stable var startTime=Time.now();  //stable to store the value over time
+  stable var startTime=Time.now(); //stable to store the value over time
+  startTime:=Time.now(); 
   Debug.print(debug_show(startTime));
 
 
